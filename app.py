@@ -1,8 +1,6 @@
 import streamlit as st
 from pyproj import Transformer
 import pandas as pd
-import numpy as np
-import pydeck as pdk
 
 
 # some constants derived from geoweb
@@ -59,7 +57,7 @@ if st.button("Bepaal vaknamen"):
             lat, lon = transformer.transform(x, y)
 
         except Exception as e:
-            continue
+            msg += f"Regel {line} gaf een foutmelding {e} en wordt genegeerd\n"
 
         data["x"].append(x)
         data["y"].append(y)
