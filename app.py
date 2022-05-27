@@ -55,6 +55,7 @@ if st.button("Bepaal vaknamen"):
                 continue
 
             lat, lon = transformer.transform(x, y)
+            vak = xy_to_code(x, y)
 
         except Exception as e:
             msg += f"Regel {line} gaf een foutmelding {e} en wordt genegeerd\n"
@@ -62,7 +63,7 @@ if st.button("Bepaal vaknamen"):
         data["x"].append(x)
         data["y"].append(y)
         data["naam"].append(t)
-        data["vak"].append(xy_to_code(x, y))
+        data["vak"].append(vak)
         data["lat"].append(lat)
         data["lon"].append(lon)
 
